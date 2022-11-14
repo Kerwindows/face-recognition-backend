@@ -22,9 +22,9 @@ const image = require("./controllers/imageGPRC");
 const db = knex({
   client: "pg",
   connection: {
-    host: "localhost",
+    host: "dpg-cdpc7cun6mpuqrunjkgg-a",
     user: "smartbrain",
-    password: "",
+    password: "NcMRM0Zhr0pVPVwfA1CjAFQxxB3EIYqa",
     database: "smartbrain",
   },
 });
