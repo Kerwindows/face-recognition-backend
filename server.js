@@ -9,16 +9,25 @@ const profile = require("./controllers/profile");
 // const image = require("./controllers/image");
 const image = require("./controllers/imageGPRC");
 
+// const db = knex({
+//   client: "pg",
+//   connection: {
+//     host: "localhost",
+//     user: "postgres",
+//     password: "",
+//     database: "smart-brain",
+//   },
+// });
+
 const db = knex({
   client: "pg",
   connection: {
     host: "localhost",
-    user: "postgres",
+    user: "smartbrain",
     password: "",
-    database: "smart-brain",
+    database: "smartbrain",
   },
 });
-
 const app = express();
 //app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); //<-- this is necessary when sending json post data
