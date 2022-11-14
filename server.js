@@ -35,7 +35,8 @@ app.use(cors());
 
 //DATABASE
 app.get("/", (req, res) => {
-  res.send(database.users);
+  // res.send(database.users);
+  res.send("server working");
 });
 
 app.post("/signin", (req, res) => {
@@ -59,6 +60,6 @@ app.post("/imageurl", (req, res) => {
 });
 
 const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`server running on port ${PORT}`);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`server running on port ${process.env.PORT}`);
 });
