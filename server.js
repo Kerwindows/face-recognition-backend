@@ -11,12 +11,21 @@ const image = require("./controllers/imageGPRC");
 const db = knex({
   client: "pg",
   connection: {
-    host: "dpg-cdpc7cun6mpuqrunjkgg-a",
-    user: "smartbrain",
-    password: "NcMRM0Zhr0pVPVwfA1CjAFQxxB3EIYqa",
-    database: "smartbrain",
+    host: process.env.DATABASE_URL,
+    ssl: true,
   },
 });
+
+// const db = knex({
+//   client: "pg",
+//   connection: {
+//     host: "dpg-cdpc7cun6mpuqrunjkgg-a",
+//     user: "smartbrain",
+//     password: "NcMRM0Zhr0pVPVwfA1CjAFQxxB3EIYqa",
+//     database: "smartbrain",
+//   },
+// });
+
 const app = express();
 //app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); //<-- this is necessary when sending json post data
