@@ -1,7 +1,6 @@
 const express = require("express");
 const cors = require("cors");
 const bcrypt = require("bcrypt");
-const saltRounds = 10;
 const knex = require("knex");
 const register = require("./controllers/register");
 const signin = require("./controllers/signin");
@@ -26,7 +25,8 @@ app.use(cors());
 
 //DATABASE
 app.get("/", (req, res) => {
-  res.send(database.users);
+  //res.send(database.users);
+  res.send("Connected");
 });
 
 app.post("/signin", (req, res) => {
