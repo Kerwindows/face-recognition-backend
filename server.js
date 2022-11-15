@@ -8,23 +8,23 @@ const profile = require("./controllers/profile");
 // const image = require("./controllers/image");
 const image = require("./controllers/imageGPRC");
 
-const db = knex({
-  client: "pg",
-  connection: {
-    connectionString: process.env.DATABASE_URL,
-    ssl: true,
-  },
-});
-
 // const db = knex({
 //   client: "pg",
 //   connection: {
-//     host: "dpg-cdpc7cun6mpuqrunjkgg-a",
-//     user: "smartbrain",
-//     password: "NcMRM0Zhr0pVPVwfA1CjAFQxxB3EIYqa",
-//     database: "smartbrain",
+//     connectionString: process.env.DATABASE_URL,
+//     ssl: true,
 //   },
 // });
+
+const db = knex({
+  client: "pg",
+  connection: {
+    host: "dpg-cdpc7cun6mpuqrunjkgg-a",
+    user: "smartbrain",
+    password: "NcMRM0Zhr0pVPVwfA1CjAFQxxB3EIYqa",
+    database: "smartbrain",
+  },
+});
 
 const app = express();
 //app.use(express.urlencoded({ extended: false }));
@@ -34,7 +34,7 @@ app.use(cors());
 //DATABASE
 app.get("/", (req, res) => {
   // res.send(database.users);
-  res.send("server working");
+  res.send(res);
 });
 
 app.post("/signin", (req, res) => {
