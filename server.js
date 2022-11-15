@@ -9,16 +9,6 @@ const profile = require("./controllers/profile");
 // const image = require("./controllers/image");
 const image = require("./controllers/imageGPRC");
 
-// const db = knex({
-//   client: "pg",
-//   connection: {
-//     host: "localhost",
-//     user: "postgres",
-//     password: "",
-//     database: "smart-brain",
-//   },
-// });
-
 const db = knex({
   client: "pg",
   connection: {
@@ -28,6 +18,9 @@ const db = knex({
     database: "smartbrain",
   },
 });
+
+console.log;
+
 const app = express();
 //app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); //<-- this is necessary when sending json post data
@@ -36,7 +29,7 @@ app.use(cors());
 //DATABASE
 app.get("/", (req, res) => {
   // res.send(database.users);
-  res.send("server working");
+  res.send(db);
 });
 
 app.post("/signin", (req, res) => {
@@ -59,7 +52,7 @@ app.post("/imageurl", (req, res) => {
   image.handleApiCall(req, res);
 });
 
-const PORT = 3000;
-app.listen(process.env.PORT || 3000, () => {
+const PORT = 5432;
+app.listen(process.env.PORT || 5432, () => {
   console.log(`server running on port ${process.env.PORT}`);
 });
