@@ -17,7 +17,6 @@ const db = knex({
     database: "smartbrain",
   },
 });
-
 const app = express();
 //app.use(express.urlencoded({ extended: false }));
 app.use(express.json()); //<-- this is necessary when sending json post data
@@ -25,8 +24,8 @@ app.use(cors());
 
 //DATABASE
 app.get("/", (req, res) => {
-  //res.send(database.users);
-  res.send("Connected");
+  // res.send(database.users);
+  res.send("server working");
 });
 
 app.post("/signin", (req, res) => {
@@ -50,6 +49,6 @@ app.post("/imageurl", (req, res) => {
 });
 
 const PORT = 3000;
-app.listen(PORT || 3000, () => {
-  console.log(`server running on port ${PORT}`);
+app.listen(process.env.PORT || 3000, () => {
+  console.log(`server running on port ${process.env.PORT}`);
 });
