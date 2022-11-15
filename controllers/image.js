@@ -24,7 +24,7 @@ const handleImage = (req, res, db) => {
     })
     .returning("entries")
     .then((entries) => {
-      console.log("entries[0]", entries[0]); //entries[0] returns and array
+      //console.log("entries[0]", entries[0]); //entries[0] returns and array
       res.json(entries[0].entries);
     })
     .catch((err) => {
